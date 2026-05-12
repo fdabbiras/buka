@@ -10,9 +10,9 @@
         body {
             background: #fcfaf8;
             background-image: radial-gradient(#d4af37 0.4px, transparent 0.4px);
-            background-size: 40px 40px;
+            background-size: 30px 30px;
             margin: 0;
-            padding: 60px 20px;
+            padding: 20px; /* Padding lebih kecil untuk HP */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -26,29 +26,32 @@
             max-width: 600px;
             width: 100%;
             border-radius: 4px;
-            box-shadow: 0 30px 70px rgba(0,0,0,0.05);
-            padding: 60px 50px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+            padding: 40px 25px; /* Padding fleksibel */
             text-align: center;
             border: 1px solid #e2d1c3;
             position: relative;
+            box-sizing: border-box; /* Biar padding nggak nambah lebar */
         }
 
+        /* Frame internal */
         .card::after {
             content: '';
             position: absolute;
-            top: 15px;
-            left: 15px;
-            right: 15px;
-            bottom: 15px;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
             border: 1px solid #f0e6dd;
             pointer-events: none;
         }
 
         .meme-img {
-            width: 220px;
+            width: 100%; /* Lebar fleksibel */
+            max-width: 200px; /* Tapi jangan kegedean */
             height: auto;
             border-radius: 12px;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             border: 1px solid #eee;
             box-shadow: 0 10px 25px rgba(0,0,0,0.05);
             position: relative;
@@ -57,52 +60,62 @@
 
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 2rem;
+            font-size: 1.6rem; /* Ukuran lebih pas untuk HP */
             font-weight: 700;
             color: #1a1a1a;
             margin-bottom: 10px;
-            line-height: 1.4;
+            line-height: 1.3;
             font-style: italic;
         }
 
+        /* Penyesuaian ukuran teks untuk layar lebih besar (Laptop) */
+        @media (min-width: 600px) {
+            h1 { font-size: 2rem; }
+            .card { padding: 60px 50px; }
+        }
+
         .subtitle {
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             color: #d4af37;
             text-transform: uppercase;
-            letter-spacing: 4px;
-            margin-bottom: 30px;
+            letter-spacing: 3px;
+            margin-bottom: 25px;
         }
 
         .divider {
-            width: 60px;
+            width: 50px;
             height: 1.5px;
             background: #d4af37;
-            margin: 0 auto 40px;
+            margin: 0 auto 30px;
         }
 
         .long-text {
-            line-height: 2.2;
-            font-size: 1.05rem;
+            line-height: 1.8; /* Line height dikurangi dikit buat HP */
+            font-size: 0.95rem;
             text-align: justify;
             color: #333;
             white-space: pre-line;
-            margin-bottom: 50px;
-            padding: 0 10px;
+            margin-bottom: 40px;
+            padding: 0;
+        }
+
+        @media (min-width: 600px) {
+            .long-text { font-size: 1.05rem; line-height: 2.2; }
         }
 
         .signature {
             font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: #1a1a1a;
-            margin-top: 50px;
+            margin-top: 40px;
             font-style: italic;
         }
 
         .footer {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             color: #ccc;
-            letter-spacing: 2px;
-            margin-top: 60px;
+            letter-spacing: 1.5px;
+            margin-top: 50px;
             text-transform: uppercase;
         }
     </style>
@@ -131,12 +144,13 @@
             Matur nuwun atas segala cinta dan persahabatan yang luar biasa ini, Kanjeng Ratu.
         </div>
 
-        <div class="divider">
-            Love, Dabbiras.
+        <div class="signature">
+            Abdi Dalem yang Pasrah Disentil,<br>
+            <span style="font-weight: bold; color: #d4af37;">Aca</span>
         </div>
 
         <div class="footer">
-            Jangan pergi &bull; Mohon ampun
+            Istana Kesabaran &bull; Sejak Delapan Tahun Silam
         </div>
     </div>
 
